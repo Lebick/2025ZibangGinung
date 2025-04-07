@@ -13,6 +13,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     public bool isCutScene;
 
     public Player player;
+    public Transform cutSceneCanvas;
 
     public Text alertText;
 

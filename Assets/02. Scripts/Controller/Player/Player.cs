@@ -43,6 +43,8 @@ public class Player : Controller
     public GameObject resetUI;
     public Image resetFill;
 
+    public GameObject getDamageEffect;
+
     public override void Start()
     {
         base.Start();
@@ -310,6 +312,7 @@ public class Player : Controller
     {
         base.GetDamage(damage);
         getDamageAnim.SetTrigger("GetDamage");
+        Instantiate(getDamageEffect, transform.position + Vector3.up, getDamageEffect.transform.rotation);
     }
 
     public override void Death()

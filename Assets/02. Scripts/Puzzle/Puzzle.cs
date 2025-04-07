@@ -16,7 +16,10 @@ public class Puzzle : MonoBehaviour
     protected virtual void Start()
     {
         if (GameManager.instance.clearPuzzles.Contains(myIndex))
+        {
+            isClear = true;
             clearEvent?.Invoke();
+        }
     }
 
     public virtual void PuzzleClear()

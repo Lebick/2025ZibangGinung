@@ -31,7 +31,7 @@ public class PlayerItem : MonoBehaviour
             currentWeight += items[i].weight;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && currentSelectItem < items.Count)
         {
             UseItem();
         }

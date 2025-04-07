@@ -31,6 +31,12 @@ public class TitleBtn : MonoBehaviour
         Application.Quit();
     }
 
+    public void _4_OnClickRankingBack()
+    {
+        rankingGroup.interactable = false;
+        StartCoroutine(HideRanking());
+    }
+
     private IEnumerator Starting()
     {
         yield return null;
@@ -47,10 +53,37 @@ public class TitleBtn : MonoBehaviour
             yield return null;
         }
 
-        while (progress >= 1f)
+        startBtnGroup.gameObject.SetActive(false);
+        rankingGroup.gameObject.SetActive(true);
+        rankingGroup.interactable = true;
+
+        while (progress >= 0f)
+        {
+            progress -= Time.deltaTime;
+            rankingGroup.alpha = 1 - progress;
+            yield return null;
+        }
+    }
+
+    private IEnumerator HideRanking()
+    {
+        float progress = 0f;
+
+        while (progress <= 1f)
         {
             progress += Time.deltaTime;
             rankingGroup.alpha = 1 - progress;
+            yield return null;
+        }
+
+        startBtnGroup.gameObject.SetActive(true);
+        rankingGroup.gameObject.SetActive(false);
+        startBtnGroup.interactable = true;
+
+        while (progress >= 0f)
+        {
+            progress -= Time.deltaTime;
+            startBtnGroup.alpha = 1 - progress;
             yield return null;
         }
     }
