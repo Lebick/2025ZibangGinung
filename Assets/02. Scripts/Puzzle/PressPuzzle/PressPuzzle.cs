@@ -34,7 +34,6 @@ public class PressPuzzle : Puzzle
     public override void PuzzleClear()
     {
         base.PuzzleClear();
-
         CameraShake.instance.SetShake(1f, 0.05f);
     }
 

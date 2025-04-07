@@ -233,6 +233,7 @@ public class Player : Controller
         {
             puzzleResetValue = 0;
             GamePlayManager.instance.currentRoom.myPuzzle.PuzzleReset();
+            resetUI.SetActive(false);
         }
     }
 
